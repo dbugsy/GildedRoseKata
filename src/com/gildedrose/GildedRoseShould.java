@@ -79,6 +79,18 @@ public class GildedRoseShould {
         assertEquals(0, gildedRose.items[0].quality);
     }
 
+    @Test
+    public void
+    decrease_quality_to_zero_when_quality_is_one(){
+        Item item = new Item("Bob", 0,1);
+        Item[] items = new Item[]{item};
+        GildedRose gildedRose = new GildedRose(items);
+
+        gildedRose.updateQuality();
+
+        assertEquals(0, gildedRose.items[0].quality);
+    }
+
 
 
 
