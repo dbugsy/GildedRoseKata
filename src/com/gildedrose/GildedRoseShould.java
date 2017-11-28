@@ -91,9 +91,40 @@ public class GildedRoseShould {
         assertEquals(0, gildedRose.items[0].quality);
     }
 
+    @Test
+    public void
+    decrease_quality_by_2_when_quality_is_over_1(){
+        Item item = new Item("Bob", 0,2);
+        Item[] items = new Item[]{item};
+        GildedRose gildedRose = new GildedRose(items);
+
+        gildedRose.updateQuality();
+
+        assertEquals(0, gildedRose.items[0].quality);
+    }
 
 
+    @Test
+    public void
+    decrease_sellin_by_one_when_sellin_is_zero(){
+        Item item = new Item("Bob", 0,0);
+        Item[] items = new Item[]{item};
+        GildedRose gildedRose = new GildedRose(items);
 
+        gildedRose.updateQuality();
 
+        assertEquals(-1, gildedRose.items[0].sellIn);
+    }
 
+    @Test
+    public void
+    not_change_sellin_for_Sulfuras_Hand_of_Ragnaros(){
+        Item item = new Item("Sulfuras, Hand of Ragnaros", 2,0);
+        Item[] items = new Item[]{item};
+        GildedRose gildedRose = new GildedRose(items);
+
+        gildedRose.updateQuality();
+
+        assertEquals(2, gildedRose.items[0].sellIn);
+    }
 }
