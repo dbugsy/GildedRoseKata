@@ -139,4 +139,16 @@ public class GildedRoseShould {
 
         assertEquals(54, gildedRose.items[0].quality);
     }
+
+    @Test
+    public void
+    increase_quality_of_aged_brie_by_2_when_below_50(){
+        Item item = new Item("Aged Brie", 0,-1);
+        Item[] items = new Item[]{item};
+        GildedRose gildedRose = new GildedRose(items);
+
+        gildedRose.updateQuality();
+
+        assertEquals(4, gildedRose.items[0].quality);
+    }
 }
