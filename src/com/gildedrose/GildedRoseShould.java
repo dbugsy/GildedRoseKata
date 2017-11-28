@@ -127,4 +127,16 @@ public class GildedRoseShould {
 
         assertEquals(2, gildedRose.items[0].sellIn);
     }
+
+    @Test
+    public void
+    not_change_quality_for_Sulfuras_Hand_of_Ragnaros(){
+        Item item = new Item("Sulfuras, Hand of Ragnaros", 0,54);
+        Item[] items = new Item[]{item};
+        GildedRose gildedRose = new GildedRose(items);
+
+        gildedRose.updateQuality();
+
+        assertEquals(54, gildedRose.items[0].quality);
+    }
 }
