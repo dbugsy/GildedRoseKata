@@ -149,6 +149,18 @@ public class GildedRoseShould {
 
         gildedRose.updateQuality();
 
-        assertEquals(4, gildedRose.items[0].quality);
+        assertEquals(1, gildedRose.items[0].quality);
+    }
+
+    @Test
+    public void
+    not_change_quality_of_aged_brie_when_above_50(){
+        Item item = new Item("Aged Brie", 0,50);
+        Item[] items = new Item[]{item};
+        GildedRose gildedRose = new GildedRose(items);
+
+        gildedRose.updateQuality();
+
+        assertEquals(50, gildedRose.items[0].quality);
     }
 }
